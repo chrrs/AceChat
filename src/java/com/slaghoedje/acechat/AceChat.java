@@ -7,12 +7,10 @@ import org.bukkit.Bukkit;
 import org.bukkit.configuration.InvalidConfigurationException;
 import org.bukkit.configuration.file.FileConfiguration;
 import org.bukkit.configuration.file.YamlConfiguration;
-import org.bukkit.plugin.RegisteredServiceProvider;
 import org.bukkit.plugin.java.JavaPlugin;
 
-import com.slaghoedje.acechat.util.Permissions;
-
-import net.milkbowl.vault.permission.Permission;
+import com.slaghoedje.acechat.commands.ChatCommand;
+import com.slaghoedje.acechat.util.I18n;
 
 public class AceChat extends JavaPlugin {
     public boolean placeholderApiPresent = false;
@@ -24,14 +22,9 @@ public class AceChat extends JavaPlugin {
             getLogger().info("Hooked into PlaceholderAPI");
         }
 
-        if(Bukkit.getPluginManager().isPluginEnabled("Vault")) {
-            RegisteredServiceProvider<Permission> permissionProvider = getServer().getServicesManager().getRegistration(Permission.class);
-            Permission permission = permissionProvider.getProvider();
-            if(permission != null) {
-                Permissions.vaultPermission = permission;
-                getLogger().info("Hooked into Vault Permissions with provider " + permission.getName());
-            } else getLogger().warning("Tried to hook into Vault permissions, but no permission plugin found!");
-        }
+        I18n.load(this);
+
+        getCommand("chat").setExecutor(new ChatCommand(this));
 
         getLogger().info("Enabled AceChat v" + getDescription().getVersion());
     }

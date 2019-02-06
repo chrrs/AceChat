@@ -1,5 +1,6 @@
 package com.slaghoedje.acechat.util;
 
+import org.bukkit.ChatColor;
 import org.bukkit.configuration.file.FileConfiguration;
 
 import com.slaghoedje.acechat.AceChat;
@@ -11,8 +12,8 @@ public class I18n {
         messagesConfig = aceChat.loadFileConfiguration("messages.yml");
     }
 
-    public static String format(String key, Object... format) {
+    public static String get(String key) {
         String value = messagesConfig.getString(key);
-        return String.format(value == null ? key : value, format);
+        return ChatColor.translateAlternateColorCodes('&', value == null ? key : value);
     }
 }
