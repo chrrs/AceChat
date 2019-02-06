@@ -1,0 +1,7 @@
+name: AceChat
+version: 2.0
+description: An elegant, multifunctional chat plugin
+author: SlagHoedje
+softdepend: [PlaceholderAPI, Vault]
+
+main: com.slaghoedje.acechat.AceChat
