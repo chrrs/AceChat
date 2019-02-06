@@ -10,7 +10,7 @@ error:
   invalidsubcommand: '&4The sub-command &c/%maincommandlabel% %subcommandlabel% &4does not exist!'
 
   # Message that appears when you try to chat while the chat is muted
-  chatmuted: '&4You can''t chat while the chat is muted!'
+  chatmuted: '&4You can''t send messages while the chat is muted!'
 
   # Message that appears when the specified player is not online
   # Variables: %player%

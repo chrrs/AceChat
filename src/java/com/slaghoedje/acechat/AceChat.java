@@ -10,6 +10,7 @@ import org.bukkit.configuration.file.YamlConfiguration;
 import org.bukkit.plugin.java.JavaPlugin;
 
 import com.slaghoedje.acechat.commands.ChatCommand;
+import com.slaghoedje.acechat.util.Config;
 import com.slaghoedje.acechat.util.I18n;
 
 public class AceChat extends JavaPlugin {
@@ -23,6 +24,7 @@ public class AceChat extends JavaPlugin {
         }
 
         I18n.load(this);
+        Config.load(this);
 
         getCommand("chat").setExecutor(new ChatCommand(this));
 

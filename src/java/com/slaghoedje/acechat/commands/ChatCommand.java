@@ -9,6 +9,8 @@ import org.bukkit.command.CommandExecutor;
 import org.bukkit.command.CommandSender;
 
 import com.slaghoedje.acechat.AceChat;
+import com.slaghoedje.acechat.commands.subcommands.ClearSubCommand;
+import com.slaghoedje.acechat.commands.subcommands.HelpSubCommand;
 import com.slaghoedje.acechat.commands.subcommands.SubCommand;
 import com.slaghoedje.acechat.commands.subcommands.VersionSubCommand;
 import com.slaghoedje.acechat.util.I18n;
@@ -20,6 +22,8 @@ public class ChatCommand implements CommandExecutor {
         subCommands = new ArrayList<>();
 
         subCommands.add(new VersionSubCommand(aceChat));
+        subCommands.add(new ClearSubCommand());
+        subCommands.add(new HelpSubCommand(this));
     }
 
     @Override
@@ -47,5 +51,9 @@ public class ChatCommand implements CommandExecutor {
                 .replaceAll("%maincommandlabel%", label)
                 .replaceAll("%subcommandlabel%", args[0]));
         return true;
+    }
+
+    public List<SubCommand> getSubCommands() {
+        return subCommands;
     }
 }

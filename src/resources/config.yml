@@ -1,0 +1,7 @@
+# The config for AceChat by SlagHoedje
+# https://www.spigotmc.org/resources/acechat.48695/
+
+# The amount of lines to clear when executing /chat clear
+# This does not include the custom message at the end defined in messages.yml
+# Default: 102 (Chat length is 100, set to 102 just to be safe)
+clear-length: 102
