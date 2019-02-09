@@ -1,3 +1,7 @@
+# -- messages.yml
+# These are all the messages in the plugin you can customize
+# Color codes are supported, and any variables are listed
+
 # Error messages
 error:
 
@@ -9,14 +13,14 @@ error:
   # Variables: %subcommandlabel%, %maincommandlabel%
   invalidsubcommand: '&4The sub-command &c/%maincommandlabel% %subcommandlabel% &4does not exist!'
 
-  # Message that appears when you try to chat while the chat is muted
+  # Message that appears when you try to send a message while the chat is muted
   chatmuted: '&4You can''t send messages while the chat is muted!'
 
-  # Message that appears when the specified player is not online
+  # Message that appears when the specified player in a command is not online
   # Variables: %player%
   playernotonline: '&4The player &c%player% &4is not online!'
 
-  # Error in usage messages
+  # Messages that appear when you don't use a command correctly
   usage:
 
     # Message that appears when you don't use /msg correctly
@@ -33,7 +37,7 @@ help:
   # Header for the help page
   header: '&8&m--------&9 AceChat Help &8&m--------'
 
-  # Format for one help item
+  # Format for a single sub-command of /chat
   # Variables: %command%, %description%
   item: '&9%command% &8- &9%description%'
 
@@ -72,7 +76,7 @@ chatclear: |
   &c&l  The chat has been cleared by %player%
   &r &r
 
-# Messages for /chat reload
+# Messages that appears when you do /chat reload
 reload:
 
   # Message that appears before reload
@@ -81,7 +85,7 @@ reload:
   # Message that appears after reload
   after: '&9AceChat reloaded!'
 
-# Messages for /chat mute
+# Messages for when you (un)mute the chat
 global-mute:
 
   # Message for when the chat gets muted
@@ -92,15 +96,11 @@ global-mute:
   # Variables: %player%
   unmute: '&c&l  The chat has been unmuted by %player%'
 
-# Messages for social spy. The format is also located here
+# Messages for social spy.
 spy:
 
-  # Message for when someone enables the social-spy
+  # Message for when someone enables the social spy
   enable: '&9Social spy enabled!'
 
-  # Message for when someone disables the social-spy
+  # Message for when someone disables the social spy
   disable: '&9Social spy disabled!'
-
-  # Social spy format for when social spy is enabled and someone messages someone else
-  # Variables: %player1%, %player2%, %message%
-  format: '&8[&c&lSpy&8] [&9%player1% &8-> &9%player2%&8]: &f%message%'

@@ -18,7 +18,7 @@ public class HelpSubCommand extends SubCommand {
         sender.sendMessage(I18n.get("help.header"));
 
         for(SubCommand subCommand : chatCommand.getSubCommands()) {
-            if(!sender.hasPermission(subCommand.getPermission())) continue;
+            if(!subCommand.getPermission().isEmpty() && !sender.hasPermission(subCommand.getPermission())) continue;
 
             sender.sendMessage(I18n.get("help.item")
                     .replaceAll("%command%", String.format("/%s %s", mainLabel, subCommand.getAliases()[0]))

@@ -1,0 +1,65 @@
+# -- chat.yml
+# Default format file for global chat
+# Keep in mind: These are all examples
+#  For instance: You don't have to use PlaceholderAPI for anything
+#
+# Some placeholders will be parsed even if PlaceholderAPI is not loaded:
+# %player_name% - The players username
+# %message% - The sent chat message
+#
+# A format is divided in parts, which you can configure individually
+# Parts will simply be appended to each other (with different actions/hover text of course!)
+parts:
+
+  # You can give a part any name, not just numbers
+  # You could add descriptive names, or just numbers
+  # They are ordered by the order in this file
+  1:
+
+    # This is simply the text you will see in the chat
+    # The default configuration uses a PlaceholderAPI placeholder for the Vault prefix
+    text: '&9%vault_prefix%'
+
+    # The text you will see when your mouse is over the text
+    # You can either make this a list of strings or a single string (see part 2)
+    # If you set this to '' or leave it out completely, no hover text will appear
+    hover:
+      - '&9Rank: &f%vault_rank%'
+      - ''
+      - '&9Buy this rank at &bstore.example.com&9!'
+
+    # This is what you want to happen when you click this part of the format
+    click:
+
+      # Choose from OPEN_FILE, OPEN_URL, RUN_COMMAND and SUGGEST_COMMAND
+      # It's pretty self-explanatory what they do
+      type: 'RUN_COMMAND'
+
+      # The text to go with the type
+      # For instance, for RUN_COMMAND, the command you want the player to run
+      # Don't forget the '/' at the start!
+      text: '/buy'
+
+    # The target for all the placeholders in this part
+    # You can leave this empty or out if you don't use PlaceholderAPI
+    # Choose from SENDER and RECEIVER   # TODO note to self: It's not really applicable in this situation, maybe move this line to private messages
+    placeholder-target: 'SENDER'
+
+  2:
+
+    # Placeholders like %player_name% will be parsed even if PlaceholderAPI is not loaded (see top)
+    text: '&f%player_name%'
+
+    # An example of a one-line hover message
+    hover: '&9Nickname: &f%player_displayname%'
+
+    click:
+      type: 'SUGGEST_COMMAND'
+
+      # You can even use placeholders in places you don't expect!
+      text: '/pm %player_name%'
+
+  3:
+    text: '&f: %message%'
+
+    # Anything you don't need, you can just leave out

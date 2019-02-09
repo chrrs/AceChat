@@ -1,5 +1,6 @@
 name: AceChat
 version: 2.0
+api-version: 1.13
 description: An elegant, multifunctional chat plugin
 author: SlagHoedje
 softdepend: [PlaceholderAPI, Vault]
@@ -12,18 +13,6 @@ commands:
     aliases: [acechat, ac]
 
 permissions:
-  acechat.admin.*:
-    description: Gives access to all admin permissions.
-    default: op
-    children:
-      acechat.admin.version: true
-      acechat.admin.help: true
-      acechat.admin.reload: true
-      acechat.admin.clear: true
-      acechat.admin.clear.bypass: true
-      acechat.admin.mutechat: true
-      acechat.admin.mutechat.bypass: true
-      acechat.admin.socialspy: true
   acechat.admin.version:
     description: Allows the user to view the version of AceChat
     default: op
@@ -48,3 +37,31 @@ permissions:
   acechat.admin.socialspy:
     description: Allows the user to enable and disable social spy
     default: op
+  acechat.admin.*:
+    description: Gives access to all admin permissions.
+    default: op
+    children:
+      acechat.admin.version: true
+      acechat.admin.help: true
+      acechat.admin.reload: true
+      acechat.admin.clear: true
+      acechat.admin.clear.bypass: true
+      acechat.admin.mutechat: true
+      acechat.admin.mutechat.bypass: true
+      acechat.admin.socialspy: true
+
+  acechat.user.color:
+    description: Allow the user to send chat messages in color.
+    default: op
+  acechat.user.chat:
+    description: Allow the user to send chat messages.
+    default: true
+  acechat.user.msg:
+    description: Allow the user to send private messages and reply to them
+    default: true
+  acechat.user.*:
+    description: Gives access to all user permissions.
+    default: true
+    children:
+      acechat.user.chat: true
+      acechat.user.msg: true

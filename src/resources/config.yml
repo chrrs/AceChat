@@ -1,5 +1,53 @@
-# The config for AceChat by SlagHoedje
+# -- config.yml
+# The configuration file for AceChat by SlagHoedje
 # https://www.spigotmc.org/resources/acechat.48695/
+
+# Formats are created in the 'formats' folder besides this file
+# The name doesn't matter, as long as it matches the name of the file you've given
+# To disable a format, set it to ''
+# The extension (.yml) is not needed
+# For an example format, see the default format at 'formats/chat.yml'
+formats:
+
+  # This is the format you'll see when someone sends a message in the global chat
+  # You can set a format in two ways:
+  # 1. Global format
+  # With this, everyone will have the same chat format. Example:
+  # chat: 'chat'
+  #
+  # 2. Permission-based formats
+  # With this, you can give players with different permissions different formats
+  # The permission you give them is acechat.format.<format>
+  # For instance: You can use this to give your admins a different format than normal players
+  # The order you put the formats in will determine the priority (higher = more priority)
+  # If the player has no permissions, it will use the 'default' format. Example:
+  # chat:
+  #   owner: 'chatowner'   # For players with the 'acechat.format.owner' permission, it will use 'chatowner.yml'
+  #   admin: 'chatadmin'   # For players with the 'acechat.format.admin' permission, it will use 'chatadmin.yml'
+  #   default: 'chat'      # For players that don't have any of these permissions, it will use 'chat.yml'
+  chat: 'chat'
+
+  # The format for join and leave messages
+  # These can also be permission-based (see above)
+  # When set to '' or left out, one of two things can happen:
+  # - If 'override-join-leave' is set to true, it will hide the join and leave messages
+  # - Else it will revert to the default messages (or let it be handled by another plugin)
+  join: 'join'
+  leave: 'leave'
+
+  # The format that will display to the sender and the receiver accordingly
+  # These DO NOT support permission-based formats (AKA you can only have one format for these)
+  # These also have a few differences from the normal formats (see the example 'privatesender.yml' and 'privatereceiver.yml')
+  private-sender: 'privatesender'
+  private-receiver: 'privatereceiver'
+
+# The message that appears when someone has social spy enabled and spies a message
+# Variables: %sender%, %receiver%, %message%
+social-spy-format: '&8[&c&lSpy&8] [&9%sender% &8-> &9%receiver%&8]: &f%message%'
+
+# When set to true, override the join and leave messages with the formats given above
+# When set to false, don't do anything with the messages (leave them up to another plugin for instance)
+override-join-leave: true
 
 # The amount of lines to clear when executing /chat clear
 # This does not include the custom message at the end defined in messages.yml

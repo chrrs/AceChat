@@ -4,12 +4,14 @@ import java.io.File;
 import java.io.IOException;
 
 import org.bukkit.Bukkit;
+import org.bukkit.command.TabExecutor;
 import org.bukkit.configuration.InvalidConfigurationException;
 import org.bukkit.configuration.file.FileConfiguration;
 import org.bukkit.configuration.file.YamlConfiguration;
 import org.bukkit.plugin.java.JavaPlugin;
 
 import com.slaghoedje.acechat.commands.ChatCommand;
+import com.slaghoedje.acechat.commands.format.ChatFormats;
 import com.slaghoedje.acechat.util.Config;
 import com.slaghoedje.acechat.util.I18n;
 
@@ -25,8 +27,13 @@ public class AceChat extends JavaPlugin {
 
         I18n.load(this);
         Config.load(this);
+        ChatFormats.load(this);
 
-        getCommand("chat").setExecutor(new ChatCommand(this));
+        Bukkit.getPluginManager().registerEvents(new ChatEventListener(this), this);
+
+        TabExecutor chatCommand = new ChatCommand(this);
+        getCommand("chat").setTabCompleter(chatCommand);
+        getCommand("chat").setExecutor(chatCommand);
 
         getLogger().info("Enabled AceChat v" + getDescription().getVersion());
     }
@@ -47,5 +54,11 @@ public class AceChat extends JavaPlugin {
             e.printStackTrace();
             return null;
         }
+    }
+
+    public void reload() {
+        I18n.load(this);
+        Config.load(this);
+        ChatFormats.load(this);
     }
 }
